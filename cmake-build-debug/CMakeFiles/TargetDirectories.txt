@@ -1,0 +1,3 @@
+/home/vikram/c++/templates_basics/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/vikram/c++/templates_basics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/vikram/c++/templates_basics/cmake-build-debug/CMakeFiles/templates_basics.dir
