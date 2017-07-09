@@ -5,7 +5,7 @@
 template <typename>
 void foo()
 {
-
+	std::cout << "easy mode branch" << std::endl;
 }
 
 
