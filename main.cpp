@@ -1,21 +1,25 @@
 #include <iostream>
+#include "ConstExpr.h"
 
-
-
-template <typename>
-void foo()
+int main()
 {
-	std::cout << "easy mode branch" << std::endl;
-}
+    ConstExprSample obj;
+    constexpr size_t a = 10;
+    constexpr size_t b = 20;
+
+    obj.sum(a,b);
 
 
-void display_wifename()
-{
-	std::cout << "Sonal yedu" << std::endl;
-}
+    std::vector<int> aVec {10,20,30,40};
+    std::vector<int> bVec {10,20,30,40};
+
+    //obj.sum(aVec,bVec);
+
+    std::array<int,4> aArr {10,20,30,40};
+    std::array<int,4> bArr {10,20,30,40};
+
+    obj.sum<4,4>(aArr,bArr);
 
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
