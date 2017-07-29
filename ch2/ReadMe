@@ -1,0 +1,14 @@
+SUMMARY
+-------
+
+Template functions define a family of functions for different template arguments.
+
+When you pass template arguments, function templates are instantiated for these argument types.
+
+You can explicitly qualify the template parameters.
+
+You can overload function templates.
+
+When you overload function templates, limit your changes to specifying template parameters explicitly.
+
+Make sure you see all overloaded versions of function templates before you call them.
