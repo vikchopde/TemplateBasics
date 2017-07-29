@@ -2,9 +2,13 @@
 #include <cstring>
 #include <vector>
 #include <stdexcept>
+#include <deque>
 
 ////Template Class Specialization
 
+//specializing class templates allows you to optimize implementations for certain types or to fix a misbehavior of certain types for an instantiation of the
+//class template. However, if you specialize a class template, you must also specialize all member functions.
+//Although it is possible to specialize a single member function, once you have done so, you can no longer specialize the whole class.
 
 template <typename T>
 class Stack
@@ -46,15 +50,50 @@ T Stack<T>::top() const
     return ele_.back();
 }
 
+template <>
+class Stack<std::string>
+{
+public:
+    Stack()  = default;
+    ~Stack() = default;
+
+    void push(const std::string& val);
+    void pop();
+    std::string top() const;
+    bool isEmpty() const { return ele_.empty(); }
+    auto size() -> typename std::deque<std::string>::size_type
+    {
+        ele_.size();
+    }
+
+private:
+    std::deque<std::string> ele_;
+};
+
+
+void Stack<std::string>::push(const std::string &val)
+{
+    ele_.push_back(val);
+}
+
+
+void Stack<std::string>::pop()
+{
+    if(isEmpty())
+        throw  std::runtime_error("stack is empty.");
+    ele_.pop_back();
+}
+
+std::string Stack<std::string>::top() const
+{
+    return ele_.back();
+}
+
 int main()
 {
     try
     {
-        Stack<int> intStack;
         Stack<std::string> stringStack;
-
-        intStack.push(10);
-        std::cout << intStack.top() << std::endl;
 
         stringStack.push("vikram");
         stringStack.push("chopde");
