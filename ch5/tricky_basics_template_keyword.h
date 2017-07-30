@@ -23,8 +23,6 @@ void PrintCollection(const T& coll)
     std::cout << std::endl;
 }
 
-// .template construct
-
 int main()
 {
     std::vector<int> vec {10, 20, 30, 40};
