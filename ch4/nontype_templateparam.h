@@ -4,61 +4,29 @@
 #include <stdexcept>
 #include <deque>
 #include <array>
+#include <algorithm>
+#include <iterator>
 
-//Non Type Template arguements
-// MAXSIZE is non type template parameter of type int
+//Non Type function Template arguements
 
-template <typename T, int MAXSIZE>
-class Stack
+template <typename T, int val>
+T addVal(const T& ele)
 {
-public:
-    Stack();
-    void push(const T& val);
-    void pop();
-    T top() const;
-
-private:
-    int numElems;
-    std::array<T, MAXSIZE> elems_;
+    return val + ele;
 };
-
-template <typename T, int MAXSIZE>
-Stack<T,MAXSIZE>::Stack()
-        : numElems(0)
-{
-
-}
-
-template <typename T, int MAXSIZE>
-void Stack<T,MAXSIZE>::pop()
-{
-    numElems--;
-}
-
-template <typename T, int MAXSIZE>
-void Stack<T,MAXSIZE>::push(const T& val)
-{
-    elems_.at(numElems++) = val;
-}
-
-template <typename T, int MAXSIZE>
-T Stack<T,MAXSIZE>::top() const
-{
-    return elems_.at(numElems);
-}
 
 int main()
 {
-    Stack<int,2> intStack;
+    std::vector<int> vec {9, 19, 29 ,39, 49};
+    std::vector<int> vec2;
 
-    try {
-        intStack.push(10);
-        intStack.push(10);
-        //intStack.push(20);
-    }
-    catch(std::exception& ex)
+    std::transform(std::begin(vec), std::end(vec),
+                   std::back_inserter(vec2),
+                   addVal<int, 1>);
+
+    for(const auto& ele : vec2)
     {
-        std::cout << ex.what() << std::endl;
+        std::cout << ele << ' ';
     }
     return 0;
 }
