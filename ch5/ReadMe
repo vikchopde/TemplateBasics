@@ -1,0 +1,13 @@
+//Summary
+To access a type name that depends on a template parameter, you have to qualify the name with a leading
+typename.
+Nested classes and member functions can also be templates. One application is the ability to implement
+generic operations with internal type conversions. However, type checking still occurs.
+Template versions of assignment operators don't replace default assignment operators.
+You can also use class templates as template parameters, as so-called template template parameters.
+Template template arguments must match exactly. Default template arguments of template template
+arguments are ignored.
+By explicitly calling a default constructor, you can make sure that variables and members of templates are
+initialized by a default value even if they are instantiated with a built-in type.
+For string literals there is an array-to-pointer conversion during argument deduction if and only if the
+parameter is not a reference.
